@@ -1,1 +1,3 @@
-# H2OHUB_App
+# H2OHUB App
+
+Welcome to H2OHUB project.
