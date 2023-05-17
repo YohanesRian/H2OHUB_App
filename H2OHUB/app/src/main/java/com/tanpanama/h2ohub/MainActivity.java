@@ -19,10 +19,13 @@ public class MainActivity extends AppCompatActivity {
                 //Jika tidak ada data dia di database hp
                 Intent intent = new Intent(MainActivity.this, GetStarted.class);
                 startActivity(intent);
+                finish();
 
                 //jika sudah ada data
 //                Intent intent = new Intent(MainActivity.this, MainMenu.class);
 //                startActivity(intent);
+//                finish();
+
             }
         }, 3000);
     }
