@@ -10,8 +10,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INI LOGO"
+        android:text="H2OHUB"
         android:textSize="50dp"
+        android:textColor="@color/Logo"
+        android:fontFamily="@font/abril"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

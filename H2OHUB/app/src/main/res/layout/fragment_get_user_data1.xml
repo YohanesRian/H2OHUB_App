@@ -25,7 +25,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/abril"
                 android:text="What is your name?"
-                android:textColor="@color/Text2"
+                android:textColor="@color/Darkgreen"
                 android:textSize="25sp" />
 
             <EditText
@@ -51,6 +51,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Next"
+            android:enabled="false"
             android:textColor="@color/DarkGrey"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
