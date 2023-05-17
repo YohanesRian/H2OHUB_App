@@ -10,5 +10,7 @@ public class GetStartedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_getstarted);
+        Fragment_GetStarted1 gs = new Fragment_GetStarted1();
+        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_GetStarted, gs).commit();
     }
 }
