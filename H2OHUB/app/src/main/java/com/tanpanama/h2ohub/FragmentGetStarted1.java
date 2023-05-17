@@ -66,8 +66,9 @@ public class FragmentGetStarted1 extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentGetStarted2 fgs = new FragmentGetStarted2();
-                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_right_to_left, R.anim.enter_left_to_right, R.anim.exit_left_to_right).replace(R.id.Container_GetStarted, fgs).commit();
+                FragmentGetStarted2 fgud = new FragmentGetStarted2();
+                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_right_to_left, R.anim.enter_left_to_right, R.anim.exit_left_to_right).replace(R.id.Container_GetStarted, fgud).commit();
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
         return v;

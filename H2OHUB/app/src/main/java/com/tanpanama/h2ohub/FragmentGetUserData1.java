@@ -31,8 +31,14 @@ public class FragmentGetUserData1 extends Fragment {
     private String mParam2;
     View v;
 
+    private UserData ud;
+
     public FragmentGetUserData1() {
         // Required empty public constructor
+    }
+
+    public FragmentGetUserData1(UserData ud) {
+        this.ud = ud;
     }
 
     /**
@@ -109,6 +115,11 @@ public class FragmentGetUserData1 extends Fragment {
             public void onClick(View v) {
                 FragmentStepViewGetStarted fs = (FragmentStepViewGetStarted) getFragmentManager().findFragmentById(R.id.container_StepView);
                 fs.nextStep();
+                ud.setName(name.toString().trim());
+
+                FragmentGetUserData2 fgud = new FragmentGetUserData2();
+                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_right_to_left, R.anim.enter_left_to_right, R.anim.exit_left_to_right).replace(R.id.container_GetUserData, fgud).commit();
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 
