@@ -4,20 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentGetStarted1">
-
+    tools:context=".FragmentGetUserData1">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_height="match_parent">
+
 
         <LinearLayout
-            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/btnGetStarted"
+            app:layout_constraintBottom_toTopOf="@+id/btnNext"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -25,52 +22,42 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/abril"
-                android:text="Welcome,"
-                android:textColor="@color/Text1"
-                android:textSize="64sp" />
+                android:text="What is your name?"
+                android:textColor="@color/Text2"
+                android:textSize="25sp" />
 
-            <TextView
+            <EditText
+                android:id="@+id/ETName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abril"
-                android:text="User!"
-                android:textColor="@color/Text1"
-                android:textSize="64sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Text2"
                 android:fontFamily="@font/modernsans"
-                android:text="Start monitor your drinking habit"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:maxLength="30"
+                android:maxLines="1"
                 android:textColor="@color/Text2"
                 android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/modernsans"
-                android:text="and have a better life."
-                android:textColor="@color/Text2"
-                android:textSize="20sp" />
-
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGetStarted"
+            android:id="@+id/btnNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/Green"
+            android:backgroundTint="@color/Grey"
             android:fontFamily="@font/abril"
-            android:text="Get Started"
-            android:textColor="@color/Darkgreen"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Next"
+            android:textColor="@color/DarkGrey"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            />
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </FrameLayout>
