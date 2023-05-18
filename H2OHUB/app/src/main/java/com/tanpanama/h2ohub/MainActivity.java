@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 
+import com.tanpanama.h2ohub.LocalHelper.database;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,16 +18,17 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //Jika tidak ada data dia di database hp
-                Intent intent = new Intent(MainActivity.this, GetStarted.class);
-                startActivity(intent);
-                finish();
-
-                //jika sudah ada data
-//                Intent intent = new Intent(MainActivity.this, MainMenu.class);
-//                startActivity(intent);
-//                finish();
-
+                database db = new database(MainActivity.this);
+                if(db.isNotRegistered()){
+                    Intent intent = new Intent(MainActivity.this, GetStarted.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    Intent intent = new Intent(MainActivity.this, MainMenu.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }, 3000);
     }

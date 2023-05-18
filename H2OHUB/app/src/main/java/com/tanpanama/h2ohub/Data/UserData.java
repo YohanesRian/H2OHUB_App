@@ -1,4 +1,4 @@
-package com.tanpanama.h2ohub;
+package com.tanpanama.h2ohub.Data;
 
 import java.time.Year;
 import java.util.Date;
@@ -75,7 +75,7 @@ public class UserData {
         return this.level_description;
     }
 
-    public int getTotalMililiterWater(){
+    public int getMaxDrinkWater(){
         int result = 0;
         int age = Year.now().getValue() - this.date_of_birth.getYear();
         if(this.gender.equalsIgnoreCase("male")){
@@ -85,13 +85,5 @@ public class UserData {
             result = (int) ((10 * this.weight) + (6.25 * this.height) - (((5 * age) - 161) * this.level_weight[activity_level]));
         }
         return result;
-    }
-
-    public int getTargetMililiterWater(){
-        return (int) (getTotalMililiterWater() * 0.8);
-    }
-
-    public int getTargetWater(int ml){
-        return (int) (ml * 0.8);
     }
 }

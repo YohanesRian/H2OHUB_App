@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.tanpanama.h2ohub.Data.UserData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,9 +27,16 @@ public class FragmentGetUserData2 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private UserData ud;
+    View v;
+
 
     public FragmentGetUserData2() {
         // Required empty public constructor
+    }
+
+    public FragmentGetUserData2(UserData ud) {
+        this.ud = ud;
     }
 
     /**
@@ -58,7 +69,19 @@ public class FragmentGetUserData2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_get_user_data2, container, false);
+        v = inflater.inflate(R.layout.fragment_get_user_data2, container, false);
+        Button back = (Button) v.findViewById(R.id.btnBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentStepViewGetStarted fs = (FragmentStepViewGetStarted) getFragmentManager().findFragmentById(R.id.container_StepView);
+                fs.prevStep();
+
+                FragmentGetUserData1 fgud = new FragmentGetUserData1(ud);
+                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_left_to_right, R.anim.exit_left_to_right, R.anim.enter_right_to_left, R.anim.exit_right_to_left).replace(R.id.container_GetUserData, fgud).commit();
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
+        return v;
     }
 }

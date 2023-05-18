@@ -63,7 +63,7 @@
             android:backgroundTint="@color/Green"
             android:fontFamily="@font/abril"
             android:text="Get Started"
-            android:textColor="@color/Darkgreen"
+            android:textColor="@color/DarkGreen"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

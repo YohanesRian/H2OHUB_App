@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.shuhart.stepview.StepView;
+import com.tanpanama.h2ohub.Data.UserData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -85,7 +85,7 @@ public class FragmentGetUserData1 extends Fragment {
                 else{
                     next.setEnabled(true);
                     next.setBackgroundColor(getResources().getColor(R.color.Green));
-                    next.setTextColor(getResources().getColor(R.color.Darkgreen));
+                    next.setTextColor(getResources().getColor(R.color.DarkGreen));
                 }
             }
 
@@ -99,7 +99,7 @@ public class FragmentGetUserData1 extends Fragment {
                 else{
                     next.setEnabled(true);
                     next.setBackgroundColor(getResources().getColor(R.color.Green));
-                    next.setTextColor(getResources().getColor(R.color.Darkgreen));
+                    next.setTextColor(getResources().getColor(R.color.DarkGreen));
                 }
 
             }
@@ -115,9 +115,9 @@ public class FragmentGetUserData1 extends Fragment {
             public void onClick(View v) {
                 FragmentStepViewGetStarted fs = (FragmentStepViewGetStarted) getFragmentManager().findFragmentById(R.id.container_StepView);
                 fs.nextStep();
-                ud.setName(name.toString().trim());
+                ud.setName(name.getText().toString().trim());
 
-                FragmentGetUserData2 fgud = new FragmentGetUserData2();
+                FragmentGetUserData2 fgud = new FragmentGetUserData2(ud);
                 getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_right_to_left, R.anim.exit_right_to_left, R.anim.enter_left_to_right, R.anim.exit_left_to_right).replace(R.id.container_GetUserData, fgud).commit();
                 getActivity().getSupportFragmentManager().popBackStack();
             }

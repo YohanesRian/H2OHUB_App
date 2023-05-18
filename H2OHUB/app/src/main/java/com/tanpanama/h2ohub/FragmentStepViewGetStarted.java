@@ -72,8 +72,14 @@ public class FragmentStepViewGetStarted extends Fragment {
     }
 
     protected void nextStep() {
-        stepIndex++;
         if(stepIndex < 5){
+            stepIndex++;
+            stepView.go(stepIndex, true);
+        }
+    }
+    protected void prevStep() {
+        if(stepIndex >= 0){
+            stepIndex--;
             stepView.go(stepIndex, true);
         }
     }

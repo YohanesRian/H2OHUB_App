@@ -22,6 +22,9 @@
             app:sv_doneTextColor="@color/Olive"
             app:sv_doneCircleRadius="16dp"
 
+            app:sv_stepNumberTextSize="0dp"
+            app:sv_textSize="0dp"
+
             app:sv_selectedStepNumberColor="@color/Olive"
             app:sv_selectedCircleColor="@color/Olive"
             app:sv_selectedCircleRadius="16dp"
