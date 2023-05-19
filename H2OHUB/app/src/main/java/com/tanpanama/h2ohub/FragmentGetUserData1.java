@@ -113,7 +113,7 @@ public class FragmentGetUserData1 extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentStepViewGetStarted fs = (FragmentStepViewGetStarted) getFragmentManager().findFragmentById(R.id.container_StepView);
+                FragmentStepView fs = (FragmentStepView) getFragmentManager().findFragmentById(R.id.container_StepView);
                 fs.nextStep();
                 ud.setName(name.getText().toString().trim());
 

@@ -74,7 +74,7 @@ public class FragmentGetUserData2 extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentStepViewGetStarted fs = (FragmentStepViewGetStarted) getFragmentManager().findFragmentById(R.id.container_StepView);
+                FragmentStepView fs = (FragmentStepView) getFragmentManager().findFragmentById(R.id.container_StepView);
                 fs.prevStep();
 
                 FragmentGetUserData1 fgud = new FragmentGetUserData1(ud);

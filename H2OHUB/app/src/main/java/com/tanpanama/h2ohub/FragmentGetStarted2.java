@@ -67,7 +67,7 @@ public class FragmentGetStarted2 extends Fragment {
                              Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_get_started2, container, false);
 
-        FragmentStepViewGetStarted fs = new FragmentStepViewGetStarted();
+        FragmentStepView fs = new FragmentStepView(5);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container_StepView, fs).commit();
 
         FragmentGetUserData1 fgud = new FragmentGetUserData1(new UserData());

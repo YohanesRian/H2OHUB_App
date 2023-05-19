@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,10 @@ import com.shuhart.stepview.StepView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentStepViewGetStarted#newInstance} factory method to
+ * Use the {@link FragmentStepView#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentStepViewGetStarted extends Fragment {
+public class FragmentStepView extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,13 +25,17 @@ public class FragmentStepViewGetStarted extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     View v;
     int stepIndex = 0;
     StepView stepView;
 
-    public FragmentStepViewGetStarted() {
+    int step_number;
+
+    public FragmentStepView() {
         // Required empty public constructor
+    }
+    public FragmentStepView(int step_number) {
+        this.step_number = step_number;
     }
 
     /**
@@ -41,11 +44,11 @@ public class FragmentStepViewGetStarted extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentStepViewGetStarted.
+     * @return A new instance of fragment FragmentStepView.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentStepViewGetStarted newInstance(String param1, String param2) {
-        FragmentStepViewGetStarted fragment = new FragmentStepViewGetStarted();
+    public static FragmentStepView newInstance(String param1, String param2) {
+        FragmentStepView fragment = new FragmentStepView();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,14 +68,14 @@ public class FragmentStepViewGetStarted extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_step_view_get_started, container, false);
+        v = inflater.inflate(R.layout.fragment_step_view, container, false);
         stepView = v.findViewById(R.id.stepview_getstarted);
-        stepView.getState().animationType(StepView.ANIMATION_ALL).stepsNumber(5).animationDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime)).commit();
+        stepView.getState().animationType(StepView.ANIMATION_ALL).stepsNumber(this.step_number).animationDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime)).commit();
         return v;
     }
 
     protected void nextStep() {
-        if(stepIndex < 5){
+        if(stepIndex < this.step_number){
             stepIndex++;
             stepView.go(stepIndex, true);
         }
