@@ -7,7 +7,6 @@
 #define pump_speed 4
 #define pump_in1 2
 #define pump_in2 15
-#define touch 13
 
 BluetoothSerial SerialBT;
 HX711_ADC LoadCell(loadcell_dout, loadcell_sck);
@@ -334,7 +333,6 @@ void setup() {
   LoadCell.tareNoDelay();
 
   pinMode(flow_sensor, INPUT_PULLUP);
-  pinMode(touch, INPUT);
   pinMode(pump_speed, OUTPUT);
   pinMode(pump_in1, OUTPUT);
   pinMode(pump_in2, OUTPUT);
