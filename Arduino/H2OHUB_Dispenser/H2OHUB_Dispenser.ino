@@ -100,6 +100,23 @@ void new_container(){
   reset_scale();
 }
 
+int last_updated_weight(){
+  long prev = 0;
+  int weight_round = 0;
+  int x = 4;
+  while(isConnected() && x > 0){
+    if (LoadCell.update()){
+      weight = LoadCell.getData();
+      weight_round = double_to_int(weight);
+    }
+    if(millis() - prev > interval){
+      x--;
+      prev = millis();
+    }
+  }
+  return weight_round;
+}
+
 int new_container_empty(){
   Serial.println("New container empty");
   boolean success = false;
@@ -146,6 +163,7 @@ void new_container_full(int empty_weight){
         weight_round = double_to_int(weight);
         if(weight_round > empty_weight + minimum_weight){
           turn_off_pump();
+          weight_round = last_updated_weight();
           SerialBT.println(weight_round);
           success = true;
           break;
@@ -299,17 +317,7 @@ void start_dispense(int start_weight, int full_weight){
    }
    turn_off_pump();
    if(success){
-     int x = 4;
-     while(isConnected() && x > 0){
-       if (LoadCell.update()){
-         weight = LoadCell.getData();
-         weight_round = double_to_int(weight);
-       }
-       if(millis() - prev > interval){
-         x--;
-         prev = millis();
-       }
-     }
+     weight_round = last_updated_weight();
      if(isConnected()){
        SerialBT.println(weight_round - start_weight);
      }
