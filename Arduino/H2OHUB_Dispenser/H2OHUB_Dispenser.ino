@@ -93,35 +93,6 @@ void reset_scale(){
   }while(weight > minimum_weight);
 }
 
-void touch_to_dispense(boolean with_reset){
-  int touchState = digitalRead(touch);
-  if(touchState == HIGH){
-    boolean set_on = false;
-    while(touchState == HIGH){
-      if(LoadCell.update()){
-        weight = LoadCell.getData();
-        Serial.println(weight);
-      }
-      if(double_to_int(weight) >= minimum_weight){
-        if(!set_on){
-          analogWrite(pump_speed, pwmOutput[2]);
-          digitalWrite(pump_in1, HIGH);
-          digitalWrite(pump_in2, LOW);
-          set_on = true;
-        }
-      }
-      else{
-        turn_off_pump();
-      }
-      touchState = digitalRead(touch);
-    }
-    turn_off_pump();
-    if(with_reset){
-      reset_scale(); 
-    }
-  }
-}
-
 void new_container(){
   int empty_weight = new_container_empty();
   if(empty_weight > minimum_weight){
@@ -163,24 +134,49 @@ int new_container_empty(){
 void new_container_full(int empty_weight){
   Serial.println("New container full");
   boolean success = false;
+  boolean set_on = false;
   int weight_round = 0;
   while(isConnected()){
     if (LoadCell.update()){
       weight = LoadCell.getData();
     }
-    touch_to_dispense(false);
     if(isAvailable()){
       String response = readStringBT();
       if(response.equals("scale")){
         SerialBT.println("success");
         weight_round = double_to_int(weight);
         if(weight_round > empty_weight + minimum_weight){
+          turn_off_pump();
           SerialBT.println(weight_round);
           success = true;
           break;
         }
         else{
           SerialBT.println("retry");
+        }
+      }
+      else if(response.equals("start")){
+        if(double_to_int(weight) >= minimum_weight){
+          if(!set_on){
+            analogWrite(pump_speed, pwmOutput[2]);
+            digitalWrite(pump_in1, HIGH);
+            digitalWrite(pump_in2, LOW);
+            SerialBT.println("Success");
+            set_on = true;
+          }
+          else{
+            SerialBT.println("alreadyOn");
+          }
+        }
+      }
+      else if(response.equals("stop")){
+        if(set_on){
+          turn_off_pump();
+          SerialBT.println("Success");
+          set_on = false;
+        }
+        else{
+          SerialBT.println("alreadyOff");
         }
       }
     }
@@ -351,8 +347,6 @@ void loop() {
   if(LoadCell.update()){
     weight = LoadCell.getData();
   }
-  
-  touch_to_dispense(true);
   
   if(isConnected() && isAvailable()){
     String result = readStringBT();
