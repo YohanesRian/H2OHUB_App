@@ -40,6 +40,38 @@ boolean isAvailable(){
   return SerialBT.available() > 0;
 }
 
+void giveBTRespon(int condition){
+  switch(condition){
+    case 3:
+      SerialBT.println("successpump");
+      break;
+    case 2:
+      SerialBT.println("next");
+      break;
+    case 1:
+      SerialBT.println("success");
+      break;
+    case 0:
+      SerialBT.println("byebye");
+      break;
+    case -1://bad connection
+      SerialBT.println("retry");
+      break;
+    case -2://pump already on
+      SerialBT.println("alreadyon");
+      break;
+    case -3://pump already off
+      SerialBT.println("alreadyoff");
+      break;
+    case -4://The container is already full
+      SerialBT.println("isfull");
+      break;
+    case -5://The container is less than data
+      SerialBT.println("isempty");
+      break;
+  }
+}
+
 String readStringBT(){
   String result = "";
   while(isAvailable() && isConnected()){
@@ -128,21 +160,22 @@ int new_container_empty(){
     if(isAvailable()){
       String response = readStringBT();
       if(response.equals("scale")){
-        SerialBT.println("success");
-        weight_round = double_to_int(weight);
+        giveBTRespon(1);
+        weight_round = last_updated_weight();
         if(weight_round > minimum_weight){
           SerialBT.println(weight_round);
           success = true;
           break;
         }
         else{
-          SerialBT.println("retry");
+          giveBTRespon(-5);
         }
       }
     }
   }
   if(success){
-    Serial.println("Success");
+    delay(100);
+    giveBTRespon(2);
   }
   return weight_round;
 }
@@ -159,7 +192,7 @@ void new_container_full(int empty_weight){
     if(isAvailable()){
       String response = readStringBT();
       if(response.equals("scale")){
-        SerialBT.println("success");
+        giveBTRespon(1);
         weight_round = double_to_int(weight);
         if(weight_round > empty_weight + minimum_weight){
           turn_off_pump();
@@ -169,38 +202,41 @@ void new_container_full(int empty_weight){
           break;
         }
         else{
-          SerialBT.println("retry");
+          delay(100);
+          giveBTRespon(-5);
         }
       }
-      else if(response.equals("start")){
+      else if(response.equals("true")){
         if(double_to_int(weight) >= minimum_weight){
           if(!set_on){
+            giveBTRespon(3);
             analogWrite(pump_speed, pwmOutput[2]);
             digitalWrite(pump_in1, HIGH);
             digitalWrite(pump_in2, LOW);
-            SerialBT.println("Success");
             set_on = true;
           }
           else{
-            SerialBT.println("alreadyOn");
+            delay(100);
+            giveBTRespon(-2);
           }
         }
       }
-      else if(response.equals("stop")){
+      else if(response.equals("false")){
         if(set_on){
+          giveBTRespon(3);
           turn_off_pump();
-          SerialBT.println("Success");
           set_on = false;
         }
         else{
-          SerialBT.println("alreadyOff");
+          giveBTRespon(-3);
         }
       }
     }
   }
   if(success){
-    Serial.println("Success");
-    delay(3000);
+    delay(100);
+    giveBTRespon(0);
+    delay(100);
     SerialBT.disconnect();
   }
 }
@@ -208,14 +244,20 @@ void new_container_full(int empty_weight){
 void drink(){
   Serial.println("Drink");
   int empty_weight = readIntBT();
+  Serial.println(empty_weight);
   if(empty_weight > 0){
-    SerialBT.println("success");
+    delay(100);
+    giveBTRespon(1);
     int full_weight = readIntBT();
+    Serial.println(full_weight);
     if(full_weight > 0){
-      SerialBT.println("success");
+      delay(100);
+      giveBTRespon(1);
       int limit = readIntBT();
+      Serial.println(limit);
       if(limit > 0){
-        SerialBT.println("success");
+        delay(100);
+        giveBTRespon(2);
         pre_start_dispense(empty_weight, full_weight, limit);
       } 
     }
@@ -233,16 +275,18 @@ void pre_start_dispense(int empty_weight, int full_weight, int limit){
     if(isAvailable() && isConnected()){
       String result = readStringBT();
       if(result.equals("start")){
-        weight_round = double_to_int(weight);
+        giveBTRespon(1);
+        weight_round = last_updated_weight();
         Serial.println(weight_round);
         if((weight_round + minimum_weight) >= full_weight){
-          SerialBT.println("isFull");
+          delay(100);
+          giveBTRespon(-4);
         }
         else if(weight_round < empty_weight){
-          SerialBT.println("underWeight");
+          delay(100);
+          giveBTRespon(-5);
         }
         else{
-          SerialBT.println("success");
           success = true;
           break;
         }
@@ -254,6 +298,8 @@ void pre_start_dispense(int empty_weight, int full_weight, int limit){
     if((full_weight - weight_round) > limit){
       need_to_dispense = limit + weight_round;
     }
+    delay(100);
+    giveBTRespon(2);
     start_dispense(weight_round, need_to_dispense);
   }
   reset_scale();
@@ -319,16 +365,12 @@ void start_dispense(int start_weight, int full_weight){
    if(success){
      weight_round = last_updated_weight();
      if(isConnected()){
-       SerialBT.println(weight_round - start_weight);
-     }
-     else{
-       SerialBT.println("failed");
+       SerialBT.println(String(weight_round - start_weight));
      }
    }
-   else{
-     SerialBT.println("failed");
-   }
-   delay(3000);
+   delay(100);
+   giveBTRespon(0);
+   delay(100);
    SerialBT.disconnect();
 }
 
@@ -357,11 +399,11 @@ void loop() {
   if(isConnected() && isAvailable()){
     String result = readStringBT();
     if(result.equals("new")){
-      SerialBT.println("success");
+      giveBTRespon(2);
       new_container();
     }
     else if(result.equals("drink")){
-      SerialBT.println("success");
+      giveBTRespon(1);
       drink();
     }
     Serial.println("Back to loop");
