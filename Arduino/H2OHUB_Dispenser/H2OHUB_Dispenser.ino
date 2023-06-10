@@ -28,6 +28,10 @@ unsigned int flowMilliLitres;
 unsigned long totalMilliLitres;
 
 
+void refresherBt(){
+  delay(300);
+}
+
 void IRAM_ATTR pulseCounter(){
   pulseCount++;
 }
@@ -41,6 +45,7 @@ boolean isAvailable(){
 }
 
 void giveBTRespon(int condition){
+  refresherBt();
   switch(condition){
     case 3:
       SerialBT.println("successpump");
@@ -174,7 +179,7 @@ int new_container_empty(){
     }
   }
   if(success){
-    delay(100);
+    refresherBt();
     giveBTRespon(2);
   }
   return weight_round;
@@ -202,7 +207,6 @@ void new_container_full(int empty_weight){
           break;
         }
         else{
-          delay(100);
           giveBTRespon(-5);
         }
       }
@@ -216,7 +220,6 @@ void new_container_full(int empty_weight){
             set_on = true;
           }
           else{
-            delay(100);
             giveBTRespon(-2);
           }
         }
@@ -234,9 +237,9 @@ void new_container_full(int empty_weight){
     }
   }
   if(success){
-    delay(100);
+    refresherBt();
     giveBTRespon(0);
-    delay(100);
+    refresherBt();
     SerialBT.disconnect();
   }
 }
@@ -246,17 +249,17 @@ void drink(){
   int empty_weight = readIntBT();
   Serial.println(empty_weight);
   if(empty_weight > 0){
-    delay(100);
+    refresherBt();
     giveBTRespon(1);
     int full_weight = readIntBT();
     Serial.println(full_weight);
     if(full_weight > 0){
-      delay(100);
+      refresherBt();
       giveBTRespon(1);
       int limit = readIntBT();
       Serial.println(limit);
       if(limit > 0){
-        delay(100);
+        refresherBt();
         giveBTRespon(2);
         pre_start_dispense(empty_weight, full_weight, limit);
       } 
@@ -279,11 +282,9 @@ void pre_start_dispense(int empty_weight, int full_weight, int limit){
         weight_round = last_updated_weight();
         Serial.println(weight_round);
         if((weight_round + minimum_weight) >= full_weight){
-          delay(100);
           giveBTRespon(-4);
         }
         else if(weight_round < empty_weight){
-          delay(100);
           giveBTRespon(-5);
         }
         else{
@@ -298,7 +299,7 @@ void pre_start_dispense(int empty_weight, int full_weight, int limit){
     if((full_weight - weight_round) > limit){
       need_to_dispense = limit + weight_round;
     }
-    delay(100);
+    refresherBt();
     giveBTRespon(2);
     start_dispense(weight_round, need_to_dispense);
   }
@@ -365,12 +366,13 @@ void start_dispense(int start_weight, int full_weight){
    if(success){
      weight_round = last_updated_weight();
      if(isConnected()){
-       SerialBT.println(String(weight_round - start_weight));
+       int result = weight_round - start_weight;
+       SerialBT.println(String(result));
      }
    }
-   delay(100);
+   refresherBt();
    giveBTRespon(0);
-   delay(100);
+   refresherBt();
    SerialBT.disconnect();
 }
 
