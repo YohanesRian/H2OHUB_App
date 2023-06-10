@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/cups_grid_animation"
+    android:direction="top_to_bottom|left_to_right"
+    android:delay="25%"
+    android:animationOrder="normal">
+
+</layoutAnimation>

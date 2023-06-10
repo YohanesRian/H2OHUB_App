@@ -2,12 +2,25 @@
     <!-- Base application theme. -->
     <style name="Theme.H2OHUB" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/background1</item>
-        <item name="colorPrimaryVariant">@color/background1</item>
+        <item name="colorPrimary">@color/Background1</item>
+        <item name="colorPrimaryVariant">@color/Background1</item>
         <item name="colorOnPrimary">@color/Text1</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/background2</item>
-        <item name="colorSecondaryVariant">@color/background2</item>
+        <item name="colorSecondary">@color/Background2</item>
+        <item name="colorSecondaryVariant">@color/Background2</item>
+        <item name="colorOnSecondary">@color/Text2</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="Theme.H2OHUB.StatusBar2">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/Background2</item>
+        <item name="colorPrimaryVariant">@color/Background2</item>
+        <item name="colorOnPrimary">@color/Text1</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/Background1</item>
+        <item name="colorSecondaryVariant">@color/Background1</item>
         <item name="colorOnSecondary">@color/Text2</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>

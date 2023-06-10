@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="NumPickerTheme">
+        <item name="colorControlNormal">@color/Text1</item>
+        <item name="android:background">@color/Radio1</item>
+        <item name="android:textColorPrimary">@color/Text2</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/century_gothic</item>
+    </style>
+
+    <style name="NavbarText">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/modernsans</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/Background1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set new drink limit"
+            android:gravity="center"
+            android:fontFamily="@font/abril"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/Text1"/>
+        <EditText
+            android:id="@+id/et_limit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Text2"
+            android:fontFamily="@font/modernsans"
+            android:inputType="numberDecimal"
+            android:lines="1"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:textColor="@color/Text2"
+            android:textSize="20sp" />
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/yesbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Save"
+                android:enabled="false"
+                android:backgroundTint="@color/Grey"
+                android:fontFamily="@font/abril"
+                android:textColor="@color/DarkGrey"
+                android:layout_margin="5dp"/>
+            <Button
+                android:id="@+id/cancelbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancel"
+                android:fontFamily="@font/abril"
+                android:textColor="@color/DarkRed"
+                android:backgroundTint="@color/Red"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

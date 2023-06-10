@@ -7,8 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background1">#D1E8E2</color>
-    <color name="background2">#366C68</color>
+    <color name="Background1">#D1E8E2</color>
+    <color name="Background2">#366C68</color>
     <color name="Text1">#1B3533</color>
     <color name="Text2">#415D5B</color>
     <color name="Logo">#386663</color>
@@ -18,6 +18,12 @@
     <color name="Green">#80B8B4</color>
     <color name="DarkGreen">#415D5B</color>
     <color name="Red">#C77575</color>
-    <color name="DarkRed">#693737</color>
-    <color name="Navbar_bg">#ABD1CE</color>
+    <color name="DarkRed">#552D2D</color>
+    <color name="NavbarBackground">#ABD1CE</color>
+    <color name="Radio1">#C7DED8</color>
+    <color name="Blue">#5693B2</color>
+    <color name="Transparent">#00000000</color>
+    <color name="ucrop_color_toolbar">@color/Background1</color>
+    <color name="ucrop_color_statusbar">@color/Background1</color>
+    <color name="ucrop_color_widget_active">@color/Text1</color>
 </resources>

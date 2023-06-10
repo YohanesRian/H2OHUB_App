@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dashboard.Home.Home"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/Background2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hi,"
+                android:fontFamily="@font/abril"
+                android:textColor="@color/Background1"
+                android:textSize="48sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Name!"
+                android:id="@+id/tv_name"
+                android:fontFamily="@font/abril"
+                android:textColor="@color/Background1"
+                android:textSize="48sp"/>
+
+            <ProgressBar
+                android:id="@+id/drink_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progress="35"
+                android:progressTint="@color/Green"
+                android:progressBackgroundTint="@color/Text1"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentLeft="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_limit_perc"
+                        android:text="78,5"
+                        android:fontFamily="@font/century_gothic"
+                        android:textStyle="bold"
+                        android:textColor="@color/Background1"
+                        android:textSize="12sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:fontFamily="@font/century_gothic"
+                        android:textStyle="bold"
+                        android:textColor="@color/Background1"
+                        android:textSize="12sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" from your limit"
+                        android:fontFamily="@font/modernsans"
+                        android:textColor="@color/Background1"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last Drink: "
+                        android:fontFamily="@font/modernsans"
+                        android:textColor="@color/Background1"
+                        android:textSize="12sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_last_drink"
+                        android:textStyle="bold"
+                        android:text="10.42 a.m."
+                        android:fontFamily="@font/century_gothic"
+                        android:textColor="@color/Background1"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:background="@color/Olive"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_drank"
+                        android:text="1,200"
+                        android:fontFamily="@font/century_gothic_bold"
+                        android:textColor="@color/Background1"
+                        android:textSize="36sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/"
+                        android:fontFamily="@font/century_gothic_bold"
+                        android:textColor="@color/Background1"
+                        android:textSize="36sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_target"
+                        android:text="1,351"
+                        android:fontFamily="@font/century_gothic_bold"
+                        android:textColor="@color/Background1"
+                        android:textSize="36sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" mL"
+                        android:fontFamily="@font/century_gothic_bold"
+                        android:textColor="@color/Background1"
+                        android:textSize="36sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Limit: "
+                        android:fontFamily="@font/century_gothic"
+                        android:textColor="@color/Background1"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_limit"
+                        android:text="1,951"
+                        android:fontFamily="@font/century_gothic"
+                        android:textColor="@color/Background1"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" mL/day"
+                        android:fontFamily="@font/century_gothic"
+                        android:textColor="@color/Background1"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/abril"
+                android:text="Your Cups"
+                android:textColor="@color/Background2"
+                android:textSize="40sp"
+                android:layout_marginBottom="10dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recycler_cups"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

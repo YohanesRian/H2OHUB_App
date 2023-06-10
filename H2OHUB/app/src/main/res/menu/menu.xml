@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/tab_home"
+            android:icon="@drawable/home_fill0_wght200_grad0_opsz48"
+            android:title="HOME"/>
+        <item
+            android:id="@+id/tab_cups"
+            android:icon="@drawable/local_cafe_fill0_wght200_grad0_opsz48"
+            android:title="CUPS" />
+        <item
+            android:id="@+id/tab_report"
+            android:icon="@drawable/insert_chart_fill0_wght200_grad0_opsz48"
+            android:title="REPORT" />
+        <item
+            android:id="@+id/tab_setting"
+            android:icon="@drawable/manage_accounts_fill0_wght200_grad0_opsz48"
+            android:title="SETTING" />
+</menu>
