@@ -167,6 +167,9 @@ public class NewContainer1 extends Fragment {
                 rxThread.start();
                 bh.sendData("new");
             }
+            else{
+                setButton(connect, true);
+            }
         } catch (Exception E) {
             setButton(connect, true);
             Toasty.error(getContext(), "Please Give Permission to Nearby Devices in Application Permission.", Toast.LENGTH_SHORT, true).show();
