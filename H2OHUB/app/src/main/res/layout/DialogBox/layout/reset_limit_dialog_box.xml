@@ -16,31 +16,32 @@
             android:gravity="center"
             android:fontFamily="@font/abril"
             android:textSize="20sp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_margin="15dp"
             android:textColor="@color/Text1"/>
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true">
+            <TextView
+                android:id="@+id/cancelbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancel"
+                android:fontFamily="@font/abril"
+                android:textColor="@color/Text2"
+                android:gravity="right"
+                android:textSize="15sp"
+                android:layout_margin="5dp"/>
             <Button
                 android:id="@+id/yesbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes"
-                android:backgroundTint="@color/Green"
-                android:fontFamily="@font/abril"
-                android:layout_margin="5dp"/>
-            <Button
-                android:id="@+id/cancelbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="No"
-                android:fontFamily="@font/abril"
                 android:textColor="@color/DarkRed"
+                android:text="Reset"
                 android:backgroundTint="@color/Red"
+                android:fontFamily="@font/abril"
                 android:layout_margin="5dp"/>
         </LinearLayout>
     </LinearLayout>

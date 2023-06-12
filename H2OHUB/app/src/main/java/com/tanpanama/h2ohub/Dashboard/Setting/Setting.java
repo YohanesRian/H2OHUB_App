@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tanpanama.h2ohub.Adapter.setting_recycler_adapter;
@@ -102,7 +103,7 @@ public class Setting extends Fragment{
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View view = getLayoutInflater().inflate(R.layout.reset_limit_dialog_box, null);
         Button yes = view.findViewById(R.id.yesbtn);
-        Button cancel = view.findViewById(R.id.cancelbtn);
+        TextView cancel = view.findViewById(R.id.cancelbtn);
 
         yes.setOnClickListener(new View.OnClickListener() {
             @Override

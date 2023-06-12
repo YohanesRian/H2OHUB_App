@@ -17,6 +17,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tanpanama.h2ohub.Adapter.cups_recycler_adapter;
@@ -153,7 +154,7 @@ public class Cups extends Fragment implements cups_recycler_interface {
 
             View view = getLayoutInflater().inflate(R.layout.delete_cup_dialog_box, null);
             Button delete = view.findViewById(R.id.deletebtn);
-            Button cancel = view.findViewById(R.id.cancelbtn);
+            TextView cancel = view.findViewById(R.id.cancelbtn);
 
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override

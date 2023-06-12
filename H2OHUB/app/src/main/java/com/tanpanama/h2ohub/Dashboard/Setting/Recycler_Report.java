@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tanpanama.h2ohub.Adapter.level_recyclerview_adapter;
@@ -120,7 +121,7 @@ public class Recycler_Report extends Fragment implements setting_recycler_interf
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View view = getLayoutInflater().inflate(R.layout.activity_level_dialog_box, null);
         Button yes = view.findViewById(R.id.yesbtn);
-        Button cancel = view.findViewById(R.id.cancelbtn);
+        TextView cancel = view.findViewById(R.id.cancelbtn);
         RecyclerView rv = view.findViewById(R.id.recycler_level);
 
         ArrayList<level_serial> als = new ArrayList<>();
@@ -176,7 +177,7 @@ public class Recycler_Report extends Fragment implements setting_recycler_interf
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View view = getLayoutInflater().inflate(R.layout.weight_dialog_box, null);
         Button yes = view.findViewById(R.id.yesbtn);
-        Button cancel = view.findViewById(R.id.cancelbtn);
+        TextView cancel = view.findViewById(R.id.cancelbtn);
         EditText et = view.findViewById(R.id.et_limit);
 
         et.addTextChangedListener(new TextWatcher() {
@@ -257,7 +258,7 @@ public class Recycler_Report extends Fragment implements setting_recycler_interf
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View view = getLayoutInflater().inflate(R.layout.height_dialog_box, null);
         Button yes = view.findViewById(R.id.yesbtn);
-        Button cancel = view.findViewById(R.id.cancelbtn);
+        TextView cancel = view.findViewById(R.id.cancelbtn);
         EditText et = view.findViewById(R.id.et_limit);
 
         et.addTextChangedListener(new TextWatcher() {
@@ -338,7 +339,7 @@ public class Recycler_Report extends Fragment implements setting_recycler_interf
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View view = getLayoutInflater().inflate(R.layout.limit_dialog_box, null);
         Button yes = view.findViewById(R.id.yesbtn);
-        Button cancel = view.findViewById(R.id.cancelbtn);
+        TextView cancel = view.findViewById(R.id.cancelbtn);
         EditText et = view.findViewById(R.id.et_limit);
 
         et.addTextChangedListener(new TextWatcher() {

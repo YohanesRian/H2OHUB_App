@@ -37,6 +37,17 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:layout_alignParentBottom="true">
+                    <TextView
+                        android:id="@+id/cancelbtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Cancel"
+                        android:fontFamily="@font/abril"
+                        android:textColor="@color/Text2"
+                        android:gravity="right"
+                        android:textSize="15sp"
+                        android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/yesbtn"
                         android:layout_width="match_parent"
@@ -46,16 +57,6 @@
                         android:backgroundTint="@color/Green"
                         android:fontFamily="@font/abril"
                         android:textColor="@color/DarkGreen"
-                        android:layout_margin="5dp"/>
-                    <Button
-                        android:id="@+id/cancelbtn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Cancel"
-                        android:fontFamily="@font/abril"
-                        android:textColor="@color/DarkRed"
-                        android:backgroundTint="@color/Red"
                         android:layout_margin="5dp"/>
                 </LinearLayout>
             </LinearLayout>

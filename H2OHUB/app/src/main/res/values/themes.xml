@@ -11,19 +11,21 @@
         <item name="colorOnSecondary">@color/Text2</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="Theme.H2OHUB.StatusBar2">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/Background2</item>
         <item name="colorPrimaryVariant">@color/Background2</item>
-        <item name="colorOnPrimary">@color/Text1</item>
+        <item name="colorOnPrimary">@color/Background1</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/Background1</item>
         <item name="colorSecondaryVariant">@color/Background1</item>
         <item name="colorOnSecondary">@color/Text2</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
