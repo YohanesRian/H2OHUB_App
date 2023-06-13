@@ -13,7 +13,7 @@
         android:fontFamily="@font/abril"
         android:text="Let’s Get Acquainted!"
         android:textColor="@color/Text1"
-        android:textSize="56sp"
+        android:textSize="50sp"
         android:gravity="left"/>
     <FrameLayout
         android:layout_width="match_parent"
