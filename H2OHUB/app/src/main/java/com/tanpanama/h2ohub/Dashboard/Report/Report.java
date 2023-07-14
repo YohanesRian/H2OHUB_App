@@ -150,8 +150,8 @@ public class Report extends Fragment {
     }
 
     void prev_month(){
-        if(month == 0){
-            month = 11;
+        if(month == 1){
+            month = 12;
             year--;
         }
         else{
@@ -163,8 +163,8 @@ public class Report extends Fragment {
     }
 
     void next_month(){
-        if(month == 11){
-            month = 0;
+        if(month == 12){
+            month = 1;
             year++;
         }
         else{
@@ -177,7 +177,7 @@ public class Report extends Fragment {
     }
 
     private void setText(){
-        String result = month_name[month] + " " + year;
+        String result = month_name[month-1] + " " + year;
         my.setText(result);
     }
 

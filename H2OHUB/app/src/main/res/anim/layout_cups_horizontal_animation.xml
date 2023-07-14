@@ -4,4 +4,4 @@
     android:delay="15%"
     android:animationOrder="normal">
 
-</layoutAnimation>
+  </layoutAnimation>
